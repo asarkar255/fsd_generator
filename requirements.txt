@@ -1,7 +1,9 @@
 fastapi
 uvicorn
 streamlit
+requests
 langchain
 langchain-openai
 python-docx
 python-dotenv
+
