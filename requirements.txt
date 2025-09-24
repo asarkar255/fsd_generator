@@ -6,4 +6,5 @@ langchain
 langchain-openai
 python-docx
 python-dotenv
+python-multipart
 
