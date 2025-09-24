@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: fsd-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        value: https://api.openai.com/v1
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+
+  - type: web
+    name: fsd-frontend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run ui/ui_fsd.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: API_BASE
+        # This is the backend's public URL; Render sets it after the first deploy.
+        # After first deploy, edit this value in the dashboard if needed.
+        value: https://fsd-backend.onrender.com
