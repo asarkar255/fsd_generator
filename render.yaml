@@ -18,7 +18,7 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run ui/ui_fsd.py --server.port $PORT --server.address 0.0.0.0
+    startCommand: streamlit run ui_fsd.py --server.port $PORT --server.address 0.0.0.0
     envVars:
       - key: API_BASE
         # This is the backend's public URL; Render sets it after the first deploy.
