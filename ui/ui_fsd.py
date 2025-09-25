@@ -1,3 +1,7 @@
+import os, sys
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+if THIS_DIR not in sys.path:
+    sys.path.insert(0, THIS_DIR)
 import streamlit as st
 from fsd_generator import generate_fsd
 from formatter import fsd_to_docx
