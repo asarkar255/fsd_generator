@@ -1,11 +1,11 @@
 from langchain_openai import ChatOpenAI
 import json, os
 
+api_key=os.getenv("OPENAI_API_KEY")
+
 llm = ChatOpenAI(
     model="gpt-4o-mini",
-    temperature=0,
-    base_url=os.getenv("OPENAI_BASE_URL"),
-    api_key=os.getenv("OPENAI_API_KEY")
+    temperature=0
 )
 
 SYSTEM_PROMPT = """
